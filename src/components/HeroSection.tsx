@@ -19,7 +19,8 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold"
+              className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold text-xl"
+              onClick={() => window.location.href = "https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500"}
             >
               Register Now
             </Button>

@@ -9,41 +9,15 @@ import FrequentlyAskedQuestions from "@/components/FrequentlyAskedQuestions";
 import MoneyBackGuarantee from "@/components/MoneyBackGuarantee";
 import CourseStructureAndOutcomes from "@/components/CourseStructureAndOutcomes";
 import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <div className="pt-16">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-accent/80 to-secondary" />
-          <div className="container relative">
-            <div className="max-w-3xl mx-auto text-center animate-fade-up">
-              <Badge className="mb-4 bg-accent text-white">
-                Course begins January 10, 2025
-              </Badge>
-              <h1 className="heading-xl mb-6 text-white">
-                AI for Research & Insights Workshop
-              </h1>
-              <p className="text-2xl md:text-4xl mb-8 text-white/90 font-semibold">
-                12 Weeks to Become an AI Power User
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold"
-                >
-                  Register Now
-                </Button>
-              </div>
-              <p className="mt-4 text-sm text-white/80">
-                Register before December 7th to get $500 off using code EARLY500
-              </p>
-            </div>
-          </div>
-        </section>
-
+        <HeroSection />
+        
         {/* Course Highlights */}
         <section className="py-20 bg-white">
           <div className="container">
@@ -211,7 +185,11 @@ const Index = () => {
                   <span className="text-3xl font-bold">$999</span>
                   <span className="text-muted-foreground line-through">$1,499</span>
                 </div>
-                <Button size="lg" className="w-full bg-accent hover:bg-accent/90">
+                <Button 
+                  size="lg" 
+                  className="w-full bg-accent hover:bg-accent/90"
+                  onClick={() => window.location.href = "https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500"}
+                >
                   Secure Your Spot
                 </Button>
                 <p className="mt-4 text-sm text-muted-foreground">

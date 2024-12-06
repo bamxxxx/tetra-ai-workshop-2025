@@ -29,7 +29,10 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
-            <Button className="bg-accent hover:bg-accent/90">
+            <Button 
+              className="bg-accent hover:bg-accent/90"
+              onClick={() => window.location.href = "https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500"}
+            >
               Register Now
             </Button>
           </div>
