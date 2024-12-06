@@ -19,7 +19,7 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
 
   const formatTime = (value: number) => value.toString().padStart(2, '0');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast({
@@ -31,9 +31,15 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
     }
     onEmailSubmit(email);
     setIsSubmitted(true);
+    localStorage.setItem('exitIntentSubmitted', 'true');
   };
 
   useEffect(() => {
+    const hasSubmitted = localStorage.getItem('exitIntentSubmitted') === 'true';
+    if (hasSubmitted) {
+      return; // Don't add the event listener if already submitted
+    }
+
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0) {
         console.log("Opening exit intent popup");
@@ -47,6 +53,11 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, []);
+
+  // If already submitted, don't render the dialog at all
+  if (localStorage.getItem('exitIntentSubmitted') === 'true') {
+    return null;
+  }
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
