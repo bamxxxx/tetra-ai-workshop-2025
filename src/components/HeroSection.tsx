@@ -26,7 +26,7 @@ const HeroSection = () => {
             </Button>
           </div>
           <p className="mt-4 text-sm text-white/80">
-            Register before December 7th to get $300 off using code EARLY300
+            Register before December 21st to get $300 off using code EARLY300
           </p>
         </div>
       </div>
