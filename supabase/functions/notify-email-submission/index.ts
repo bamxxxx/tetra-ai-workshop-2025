@@ -26,6 +26,8 @@ const handler = async (req: Request): Promise<Response> => {
     const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
     const submission: EmailSubmission = await req.json();
     
+    console.log('Processing submission:', submission);
+    
     // Store email in database
     const { data: dbData, error: dbError } = await supabase
       .from('email_submissions')
@@ -41,8 +43,10 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error('Failed to store email submission');
     }
 
+    console.log('Successfully stored in database:', dbData);
+
     // Send notification email
-    const res = await fetch("https://api.resend.com/emails", {
+    const emailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,9 +67,11 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
-    if (!res.ok) {
-      const error = await res.text();
-      console.error('Resend API error:', error);
+    const emailData = await emailRes.text();
+    console.log('Resend API response:', emailRes.status, emailData);
+
+    if (!emailRes.ok) {
+      console.error('Resend API error:', emailData);
       throw new Error('Failed to send notification email');
     }
 
