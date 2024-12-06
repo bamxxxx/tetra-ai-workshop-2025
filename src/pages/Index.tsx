@@ -20,14 +20,17 @@ const Index = () => {
         <section className="relative py-20 md:py-32 overflow-hidden">
           {/* Background image with full opacity */}
           <div 
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 z-0"
             style={{
-              backgroundImage: "url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')"
+              backgroundImage: "url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
             }}
           />
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary to-background" />
-          <div className="container relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-background z-10" />
+          <div className="container relative z-20">
             <div className="max-w-3xl mx-auto text-center animate-fade-up">
               <Badge className="mb-4 bg-accent text-white">
                 Course begins January 10, 2025
