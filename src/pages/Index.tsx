@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarIcon, CheckCircle, Trophy, Users } from "lucide-react";
+import { CalendarIcon, Trophy, Users } from "lucide-react";
 import CourseCurriculum from "@/components/CourseCurriculum";
 import WhatYouWillGain from "@/components/WhatYouWillGain";
 import AboutInstructor from "@/components/AboutInstructor";
 import FrequentlyAskedQuestions from "@/components/FrequentlyAskedQuestions";
 import MoneyBackGuarantee from "@/components/MoneyBackGuarantee";
+import CourseStructureAndOutcomes from "@/components/CourseStructureAndOutcomes";
 
 const Index = () => {
   return (
@@ -131,44 +132,7 @@ const Index = () => {
       </section>
       
       {/* Course Structure & Learning Outcomes */}
-      <section className="py-16 bg-white">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="heading-md mb-6">Course Structure</h2>
-              <ul className="space-y-4">
-                {[
-                  "📚 12 Comprehensive Modules",
-                  "🖥️ Weekly Live Sessions",
-                  "💬 Interactive Q&A",
-                  "👨‍🏫 1-on-1 Coaching",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="text-accent shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="heading-md mb-6">Learning Outcomes</h2>
-              <ul className="space-y-4">
-                {[
-                  "🧠 AI Fundamentals Mastery",
-                  "🛠️ Practical Tool Proficiency",
-                  "🚀 Workflow Optimization",
-                  "🏆 Optional Certification",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="text-accent shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CourseStructureAndOutcomes />
       
       {/* What You'll Gain Section */}
       <WhatYouWillGain />
