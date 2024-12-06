@@ -48,7 +48,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Successfully stored in database:', dbData);
 
-    // Send notification email with the verified email address
+    // Send notification email using Resend
     const emailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -73,10 +73,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (!emailRes.ok) {
       const emailData = await emailRes.text();
       console.error('Resend API error:', emailData);
-      return new Response(JSON.stringify({ error: `Failed to send notification email: ${emailData}` }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      throw new Error(`Failed to send notification email: ${emailData}`);
     }
 
     const emailData = await emailRes.json();
