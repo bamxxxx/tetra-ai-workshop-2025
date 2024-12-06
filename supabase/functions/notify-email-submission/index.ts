@@ -48,7 +48,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Successfully stored in database:', dbData);
 
-    // Send notification email
+    // Send notification email with the verified email address
     const emailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -56,7 +56,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "AI Workshop <workshop@tetra.team>",
+        from: "Tetra AI Workshop <aiworkshop@tetra.support>",
         to: ["m@tetra.team"],
         subject: "New Workshop Offer Extension Request",
         html: `
