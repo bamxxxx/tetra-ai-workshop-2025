@@ -17,8 +17,8 @@ const MoneyBackGuarantee = () => {
               className="w-48 h-48 object-contain"
             />
             <div className="text-left">
-              <h3 className="text-xl font-bold mb-2">Risk-free enrollment</h3>
-              <p className="text-lg">
+              <h3 className="text-2xl font-bold mb-2">Risk-free enrollment</h3>
+              <p className="text-xl">
                 Try the course, apply the skills, and if it doesn't meet your expectations, 
                 get a full refund.
               </p>
