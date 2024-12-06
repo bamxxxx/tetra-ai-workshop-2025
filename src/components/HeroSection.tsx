@@ -21,11 +21,11 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              size="lg" 
-              className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold text-2xl group transition-all duration-300 hover:scale-105 hover:translate-x-2"
+              variant="hero"
+              size="xl"
             >
               Register Now
-              <ArrowRight className="ml-2 h-6 w-6 transition-transform duration-300 group-hover:translate-x-2" />
+              <ArrowRight className="ml-2 h-8 w-8" />
             </Button>
           </div>
           <p className="mt-4 text-sm text-white/80">
