@@ -16,10 +16,13 @@ const MoneyBackGuarantee = () => {
               alt="100% Money Back Guarantee" 
               className="w-48 h-48 object-contain"
             />
-            <p className="text-lg font-medium text-left">
-              Risk-free enrollment: Try the course, apply the skills, and if it doesn't meet your expectations, 
-              get a full refund.
-            </p>
+            <div className="text-left">
+              <h3 className="text-xl font-bold mb-2">Risk-free enrollment</h3>
+              <p className="text-lg">
+                Try the course, apply the skills, and if it doesn't meet your expectations, 
+                get a full refund.
+              </p>
+            </div>
           </div>
         </Card>
       </div>
