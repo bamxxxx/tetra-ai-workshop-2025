@@ -70,7 +70,7 @@ const Index = () => {
                 {
                   icon: <CalendarIcon className="w-6 h-6 text-accent" />,
                   title: "Early Bird Deadline",
-                  date: "December 7, 2024",
+                  date: "December 21, 2024",
                 },
                 {
                   icon: <Trophy className="w-6 h-6 text-accent" />,
