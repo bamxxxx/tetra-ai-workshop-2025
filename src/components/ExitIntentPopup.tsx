@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -35,18 +35,17 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
     });
   };
 
-  // Set up exit intent detection
-  useState(() => {
+  useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !localStorage.getItem('exitIntentShown')) {
+      if (e.clientY <= 0) {
+        console.log("Opening exit intent popup");
         setIsOpen(true);
-        localStorage.setItem('exitIntentShown', 'true');
       }
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  });
+  }, []);
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
@@ -55,7 +54,7 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
           <AlertDialogTitle className="text-2xl text-center mb-4">
             Wait! Don't Miss Out on This Exclusive Offer
           </AlertDialogTitle>
-          <AlertDialogDescription className="text-center space-y-6">
+          <AlertDialogDescription className="space-y-6">
             <div className="bg-accent/10 p-6 rounded-lg">
               <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
                 <Timer className="w-6 h-6" />
@@ -70,21 +69,23 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
               Get $500 off with code: <span className="text-red-500">VIPX500</span>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-4">
               <p className="text-sm">
                 Enter your email to extend this offer for an additional 48 hours!
               </p>
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full"
-              />
-              <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
-                Extend My Offer
-              </Button>
-            </form>
+              <form onSubmit={handleSubmit}>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full mb-4"
+                />
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+                  Extend My Offer
+                </Button>
+              </form>
+            </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
       </AlertDialogContent>
