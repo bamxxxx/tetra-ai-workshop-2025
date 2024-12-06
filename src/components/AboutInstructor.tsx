@@ -23,7 +23,11 @@ const AboutInstructor = () => {
         <div className="text-center">
           <h2 className="heading-lg mb-8">About the Instructor</h2>
           <div className="mb-8">
-            <div className="w-32 h-32 rounded-full bg-accent/20 mx-auto mb-4" />
+            <img 
+              src="/lovable-uploads/55000457-4e92-4e19-a1fd-16887d0a02e9.png"
+              alt="Michael Bamberger"
+              className="w-32 h-32 rounded-full object-cover mx-auto mb-4"
+            />
             <h3 className="text-xl font-bold">Michael Bamberger</h3>
             <p className="text-muted-foreground">Founder & CEO, Tetra Insights</p>
           </div>
