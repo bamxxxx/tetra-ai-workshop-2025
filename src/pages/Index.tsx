@@ -17,9 +17,9 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <NotificationBar />
-      <div>
+      <div className="pt-10"> {/* Add padding to push content below notification bar */}
         <Navbar />
-        <div className="pt-24"> {/* Increased padding to account for both notification bar and navbar */}
+        <div className="pt-16"> {/* Add padding for content below navbar */}
           <HeroSection />
           
           <section className="py-20 bg-white">
