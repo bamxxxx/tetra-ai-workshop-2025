@@ -9,6 +9,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, CheckCircle, Trophy, Users } from "lucide-react";
 import CourseCurriculum from "@/components/CourseCurriculum";
+import WhatYouWillGain from "@/components/WhatYouWillGain";
 
 const Index = () => {
   return (
@@ -185,6 +186,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* What You'll Gain Section */}
+      <WhatYouWillGain />
       
       {/* Who Should Enroll */}
       <section className="py-16 bg-secondary">
