@@ -11,10 +11,12 @@ import CourseStructureAndOutcomes from "@/components/CourseStructureAndOutcomes"
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PricingSection from "@/components/PricingSection";
+import NotificationBar from "@/components/NotificationBar";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <NotificationBar />
       <Navbar />
       <div className="pt-16">
         <HeroSection />
