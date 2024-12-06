@@ -23,6 +23,9 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Log API key presence (not the actual key)
+    console.log('Resend API Key present:', !!RESEND_API_KEY);
+    
     const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
     const submission: EmailSubmission = await req.json();
     
@@ -72,7 +75,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (!emailRes.ok) {
       console.error('Resend API error:', emailData);
-      throw new Error('Failed to send notification email');
+      return new Response(JSON.stringify({ error: `Failed to send notification email: ${emailData}` }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     return new Response(JSON.stringify({ success: true }), {
