@@ -49,6 +49,9 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   useEffect(() => {
     console.log("Setting up exit intent detection");
     
+    // Clear the exitIntentShown flag when component mounts
+    localStorage.removeItem('exitIntentShown');
+    
     const handleMouseLeave = (e: MouseEvent) => {
       console.log("Mouse leave event detected", {
         clientY: e.clientY,
