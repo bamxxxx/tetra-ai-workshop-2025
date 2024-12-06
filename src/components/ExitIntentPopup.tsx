@@ -47,7 +47,6 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   useEffect(() => {
     console.log("Setting up exit intent detection");
     
-    // Clear the exitIntentShown flag when component mounts
     localStorage.removeItem('exitIntentShown');
     
     const handleMouseLeave = (e: MouseEvent) => {
@@ -83,8 +82,8 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
           <AlertDialogTitle className="text-2xl text-center mb-4">
             Wait! Don't Miss Out on This Exclusive Offer
           </AlertDialogTitle>
-          <AlertDialogDescription className="text-center">
-            <div className="space-y-6">
+          <AlertDialogDescription asChild>
+            <div className="space-y-6 text-center">
               <div className="bg-accent/10 p-6 rounded-lg">
                 <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
                   <Timer className="w-6 h-6" />
@@ -99,26 +98,24 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
                 Get $500 off with code: <span className="text-red-500">VIPX500</span>
               </div>
               
-              <div className="space-y-4">
-                <div className="relative">
-                  <ArrowDown className="absolute -top-8 right-4 w-6 h-6 text-accent animate-bounce" />
-                  <div className="text-sm mb-2">
-                    Enter your email to extend this offer for an additional 48 hours!
-                  </div>
-                  <form onSubmit={handleSubmit}>
-                    <Input
-                      ref={inputRef}
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full text-lg p-6 border-2 border-accent focus:ring-4 focus:ring-accent/20 transition-all duration-300"
-                    />
-                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-lg py-6 mt-4">
-                      Extend My Offer
-                    </Button>
-                  </form>
+              <div className="relative">
+                <ArrowDown className="absolute -top-8 right-4 w-6 h-6 text-accent animate-bounce" />
+                <div className="text-sm mb-2">
+                  Enter your email to extend this offer for an additional 48 hours!
                 </div>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input
+                    ref={inputRef}
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full text-lg p-6 border-2 border-accent focus:ring-4 focus:ring-accent/20 transition-all duration-300"
+                  />
+                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-lg py-6">
+                    Extend My Offer
+                  </Button>
+                </form>
               </div>
             </div>
           </AlertDialogDescription>
