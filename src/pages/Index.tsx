@@ -17,9 +17,9 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <NotificationBar />
-      <div className="pt-16"> {/* Increased padding to account for fixed notification bar */}
+      <div> {/* Removed padding here since we want the navbar right after notification */}
         <Navbar />
-        <div className="pt-16"> {/* Padding for navbar */}
+        <div className="pt-16"> {/* Keep padding for content below navbar */}
           <HeroSection />
           
           <section className="py-20 bg-white">
