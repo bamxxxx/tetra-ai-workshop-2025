@@ -20,13 +20,13 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold text-xl"
-              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500", "_blank")}
+              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY300", "_blank")}
             >
               Register Now
             </Button>
           </div>
           <p className="mt-4 text-sm text-white/80">
-            Register before December 7th to get $500 off using code EARLY500
+            Register before December 7th to get $300 off using code EARLY300
           </p>
         </div>
       </div>

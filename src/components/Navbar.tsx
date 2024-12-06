@@ -31,7 +31,7 @@ const Navbar = () => {
             </Link>
             <Button 
               className="bg-accent hover:bg-accent/90"
-              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500", "_blank")}
+              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY300", "_blank")}
             >
               Register Now
             </Button>
