@@ -12,32 +12,9 @@ import CourseStructureAndOutcomes from "@/components/CourseStructureAndOutcomes"
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* Header with Logo */}
-      <header className="py-6 relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ 
-            backgroundImage: `url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')`,
-            opacity: 0.1
-          }} 
-        />
-        <div className="container relative">
-          <img 
-            src="https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/tetra_logo_color_horizontal%20(2).svg"
-            alt="Tetra Logo"
-            className="h-12 mx-auto"
-          />
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ 
-            backgroundImage: `url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')`,
-            opacity: 0.05
-          }} 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary to-background" />
         <div className="container relative">
           <div className="max-w-3xl mx-auto text-center animate-fade-up">
             <Badge className="mb-4 bg-accent text-white">
@@ -63,7 +40,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Course Highlights */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -100,7 +77,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Key Dates Section */}
       <section className="py-16 bg-secondary">
         <div className="container">
@@ -132,10 +109,10 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Risk-Free Offer */}
       <MoneyBackGuarantee />
-
+      
       {/* Course Overview */}
       <section className="py-16 bg-secondary">
         <div className="container max-w-3xl">
@@ -153,16 +130,16 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Course Structure & Learning Outcomes */}
       <CourseStructureAndOutcomes />
-
+      
       {/* What You'll Gain Section */}
       <WhatYouWillGain />
-
+      
       {/* About the Instructor */}
       <AboutInstructor />
-
+      
       {/* Who Should Enroll */}
       <section className="py-16 bg-secondary">
         <div className="container">
@@ -182,7 +159,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* What's Included */}
       <section className="py-16 bg-white">
         <div className="container max-w-4xl">
@@ -217,10 +194,10 @@ const Index = () => {
 
       {/* Course Curriculum Section */}
       <CourseCurriculum />
-
+      
       {/* FAQ Section */}
       <FrequentlyAskedQuestions />
-
+      
       {/* Pricing Section */}
       <section className="py-20 bg-secondary">
         <div className="container">
@@ -241,7 +218,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Footer */}
       <footer className="py-8 bg-primary text-primary-foreground">
         <div className="container text-center">
