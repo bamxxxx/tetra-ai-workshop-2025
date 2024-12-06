@@ -32,7 +32,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold text-xl"
+                  className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold"
                 >
                   Register Now
                 </Button>
