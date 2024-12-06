@@ -18,6 +18,14 @@ const Index = () => {
       <div className="pt-16">
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
+          {/* Background image with lower opacity */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-5"
+            style={{
+              backgroundImage: "url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')"
+            }}
+          />
+          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-secondary to-background" />
           <div className="container relative">
             <div className="max-w-3xl mx-auto text-center animate-fade-up">
