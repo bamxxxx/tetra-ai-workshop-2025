@@ -8,39 +8,43 @@ import AboutInstructor from "@/components/AboutInstructor";
 import FrequentlyAskedQuestions from "@/components/FrequentlyAskedQuestions";
 import MoneyBackGuarantee from "@/components/MoneyBackGuarantee";
 import CourseStructureAndOutcomes from "@/components/CourseStructureAndOutcomes";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary to-background" />
-        <div className="container relative">
-          <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <Badge className="mb-4 bg-accent text-white">
-              Course begins January 10, 2025
-            </Badge>
-            <h1 className="heading-xl mb-6">
-              AI for Research & Insights Workshop
-            </h1>
-            <p className="body-lg mb-8">
-              12 Weeks to Become an AI Power User
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent hover:bg-accent/90">
-                Register Now
-              </Button>
-              <Button size="lg" variant="outline">
-                Learn More
-              </Button>
+      <Navbar />
+      {/* Add padding-top to account for fixed navbar */}
+      <div className="pt-16">
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary to-background" />
+          <div className="container relative">
+            <div className="max-w-3xl mx-auto text-center animate-fade-up">
+              <Badge className="mb-4 bg-accent text-white">
+                Course begins January 10, 2025
+              </Badge>
+              <h1 className="heading-xl mb-6">
+                AI for Research & Insights Workshop
+              </h1>
+              <p className="body-lg mb-8">
+                12 Weeks to Become an AI Power User
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-accent hover:bg-accent/90">
+                  Register Now
+                </Button>
+                <Button size="lg" variant="outline">
+                  Learn More
+                </Button>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Register before December 7th to get $500 off using code EARLY500
+              </p>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Register before December 7th to get $500 off using code EARLY500
-            </p>
           </div>
-        </div>
-      </section>
-      
+        </section>
+
       {/* Course Highlights */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -236,6 +240,7 @@ const Index = () => {
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 };
