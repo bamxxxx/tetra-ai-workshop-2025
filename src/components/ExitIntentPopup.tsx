@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Timer } from "lucide-react";
+import { Timer, X, ArrowDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ExitIntentPopupProps {
@@ -14,8 +14,18 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const formatTime = (value: number) => value.toString().padStart(2, '0');
+
+  // Focus the input when the popup opens
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
+    }
+  }, [isOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +60,16 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogContent className="sm:max-w-[500px]">
+      <AlertDialogContent className="sm:max-w-[500px] relative">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-4 top-4 rounded-full hover:bg-accent/20"
+          onClick={() => setIsOpen(false)}
+        >
+          <X className="h-4 w-4" />
+        </Button>
+        
         <AlertDialogHeader>
           <AlertDialogTitle className="text-2xl text-center mb-4">
             Wait! Don't Miss Out on This Exclusive Offer
@@ -71,17 +90,21 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
             </div>
             
             <form onSubmit={handleSubmit} className="space-y-4">
-              <p className="text-sm">
-                Enter your email to extend this offer for an additional 48 hours!
-              </p>
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full"
-              />
-              <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+              <div className="relative">
+                <ArrowDown className="absolute -top-8 right-4 w-6 h-6 text-accent animate-bounce" />
+                <p className="text-sm mb-2">
+                  Enter your email to extend this offer for an additional 48 hours!
+                </p>
+                <Input
+                  ref={inputRef}
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full text-lg p-6 border-2 border-accent focus:ring-4 focus:ring-accent/20 transition-all duration-300"
+                />
+              </div>
+              <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-lg py-6">
                 Extend My Offer
               </Button>
             </form>
