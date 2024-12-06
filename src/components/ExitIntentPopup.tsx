@@ -19,7 +19,7 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
 
   const formatTime = (value: number) => value.toString().padStart(2, '0');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) {
       toast({
@@ -110,7 +110,7 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
               ) : (
                 <div className="text-center space-y-4">
                   <div className="text-lg">
-                    Check your email for your discount code!
+                    Great! We've sent your custom discount code to your email. Please check your inbox to access your extended offer.
                   </div>
                 </div>
               )}
