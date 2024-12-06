@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Timer, ArrowDown } from "lucide-react";
+import { Timer, ArrowDown, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ExitIntentPopupProps {
@@ -55,6 +55,15 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent className="sm:max-w-[500px]">
+        <Button 
+          className="absolute right-4 top-4 p-2 hover:bg-accent/10 rounded-full"
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsOpen(false)}
+        >
+          <X className="h-4 w-4" />
+          <span className="sr-only">Close</span>
+        </Button>
         <AlertDialogHeader>
           <AlertDialogTitle className="text-2xl text-center mb-4">
             Wait! Don't Miss Out on This Exclusive Offer
