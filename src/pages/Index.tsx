@@ -13,8 +13,14 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Header with Logo */}
-      <header className="py-6 bg-white">
-        <div className="container">
+      <header className="py-6 relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+          style={{ 
+            backgroundImage: `url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')`,
+            opacity: 0.1
+          }} 
+        />
+        <div className="container relative">
           <img 
             src="https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/tetra_logo_color_horizontal%20(2).svg"
             alt="Tetra Logo"
