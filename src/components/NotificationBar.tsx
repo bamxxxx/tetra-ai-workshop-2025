@@ -3,25 +3,40 @@ import { Timer, ArrowRight } from 'lucide-react';
 
 const NotificationBar = () => {
   const [timeLeft, setTimeLeft] = useState({
-    hours: 6,
+    hours: 12,
     minutes: 0,
     seconds: 0
   });
 
   useEffect(() => {
+    // Check if this is the first visit
+    const endTime = localStorage.getItem('timerEndTime');
+    
+    if (!endTime) {
+      // First visit - set end time to 12 hours from now
+      const end = new Date();
+      end.setHours(end.getHours() + 12);
+      localStorage.setItem('timerEndTime', end.toISOString());
+    }
+
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        const totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds - 1;
-        if (totalSeconds <= 0) {
-          clearInterval(timer);
-          return { hours: 0, minutes: 0, seconds: 0 };
-        }
-        
-        return {
-          hours: Math.floor(totalSeconds / 3600),
-          minutes: Math.floor((totalSeconds % 3600) / 60),
-          seconds: totalSeconds % 60
-        };
+      const endTimeStr = localStorage.getItem('timerEndTime');
+      if (!endTimeStr) return;
+
+      const endTime = new Date(endTimeStr);
+      const now = new Date();
+      const totalSeconds = Math.max(0, Math.floor((endTime.getTime() - now.getTime()) / 1000));
+
+      if (totalSeconds <= 0) {
+        clearInterval(timer);
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({
+        hours: Math.floor(totalSeconds / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60
       });
     }, 1000);
 
