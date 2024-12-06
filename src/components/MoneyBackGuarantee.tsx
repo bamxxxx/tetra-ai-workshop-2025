@@ -14,7 +14,7 @@ const MoneyBackGuarantee = () => {
             <img 
               src="/lovable-uploads/da876674-a975-4fb2-bccf-79d76a01eb16.png" 
               alt="100% Money Back Guarantee" 
-              className="w-24 h-24 object-contain"
+              className="w-48 h-48 object-contain"
             />
             <p className="text-lg font-medium text-left">
               Risk-free enrollment: Try the course, apply the skills, and if it doesn't meet your expectations, 
