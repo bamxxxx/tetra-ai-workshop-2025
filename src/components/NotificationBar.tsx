@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Timer, ArrowRight } from 'lucide-react';
 import ExitIntentPopup from './ExitIntentPopup';
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const NotificationBar = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -8,6 +10,7 @@ const NotificationBar = () => {
     minutes: 0,
     seconds: 0
   });
+  const { toast } = useToast();
 
   useEffect(() => {
     // Check if this is the first visit
@@ -44,14 +47,43 @@ const NotificationBar = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleExtendOffer = (email: string) => {
-    // Extend the timer by 48 hours from current end time
-    const currentEndTime = new Date(localStorage.getItem('timerEndTime') || new Date());
-    const newEndTime = new Date(currentEndTime.getTime() + (48 * 60 * 60 * 1000));
-    localStorage.setItem('timerEndTime', newEndTime.toISOString());
-    
-    // Store the email (you might want to send this to your backend)
-    console.log('Email submitted:', email);
+  const handleExtendOffer = async (email: string) => {
+    try {
+      // Extend the timer by 48 hours from current end time
+      const currentEndTime = new Date(localStorage.getItem('timerEndTime') || new Date());
+      const newEndTime = new Date(currentEndTime.getTime() + (48 * 60 * 60 * 1000));
+      localStorage.setItem('timerEndTime', newEndTime.toISOString());
+      
+      // Notify backend about the email submission
+      const { error } = await supabase.functions.invoke('notify-email-submission', {
+        body: {
+          email,
+          offerExtendedUntil: newEndTime.toISOString()
+        }
+      });
+
+      if (error) {
+        console.error('Error submitting email:', error);
+        toast({
+          title: "Error",
+          description: "There was a problem extending your offer. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Offer Extended!",
+        description: "We've extended your discount for an additional 48 hours.",
+      });
+    } catch (error) {
+      console.error('Error in handleExtendOffer:', error);
+      toast({
+        title: "Error",
+        description: "There was a problem extending your offer. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const formatTime = (value: number) => value.toString().padStart(2, '0');
