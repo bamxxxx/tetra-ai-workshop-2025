@@ -20,7 +20,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold text-xl"
-              onClick={() => window.location.href = "https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500"}
+              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY500", "_blank")}
             >
               Register Now
             </Button>
