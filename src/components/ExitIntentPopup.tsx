@@ -46,9 +46,17 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   };
 
   // Set up exit intent detection
-  useState(() => {
+  useEffect(() => {
+    console.log("Setting up exit intent detection");
+    
     const handleMouseLeave = (e: MouseEvent) => {
+      console.log("Mouse leave event detected", {
+        clientY: e.clientY,
+        exitIntentShown: localStorage.getItem('exitIntentShown')
+      });
+      
       if (e.clientY <= 0 && !localStorage.getItem('exitIntentShown')) {
+        console.log("Opening exit intent popup");
         setIsOpen(true);
         localStorage.setItem('exitIntentShown', 'true');
       }
@@ -56,7 +64,7 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  });
+  }, []); // Added empty dependency array here
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
