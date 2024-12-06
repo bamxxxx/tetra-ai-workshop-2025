@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Timer } from 'lucide-react';
+import { Timer, ArrowRight } from 'lucide-react';
 
 const NotificationBar = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -39,15 +39,17 @@ const NotificationBar = () => {
           {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)} remaining
         </span>
         <span>|</span>
-        <span>Get $500 off with code</span>
+        <span className="font-extrabold text-red-400">Get $500 off</span>
+        <span>with code</span>
         <span className="font-bold">VIPX500</span>
         <a
           href="https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=VIPX500"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:no-underline ml-2"
+          className="flex items-center gap-1 font-semibold hover:bg-white/20 px-2 py-1 rounded-full transition-colors"
         >
           Claim Now
+          <ArrowRight className="w-4 h-4" />
         </a>
       </div>
     </div>
