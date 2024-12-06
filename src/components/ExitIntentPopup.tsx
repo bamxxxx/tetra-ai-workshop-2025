@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Timer, X, ArrowDown } from "lucide-react";
+import { Timer } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ExitIntentPopupProps {
@@ -14,17 +14,8 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const formatTime = (value: number) => value.toString().padStart(2, '0');
-
-  useEffect(() => {
-    if (isOpen && inputRef.current) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
-    }
-  }, [isOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,19 +35,10 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
     });
   };
 
-  useEffect(() => {
-    console.log("Setting up exit intent detection");
-    
-    localStorage.removeItem('exitIntentShown');
-    
+  // Set up exit intent detection
+  useState(() => {
     const handleMouseLeave = (e: MouseEvent) => {
-      console.log("Mouse leave event detected", {
-        clientY: e.clientY,
-        exitIntentShown: localStorage.getItem('exitIntentShown')
-      });
-      
       if (e.clientY <= 0 && !localStorage.getItem('exitIntentShown')) {
-        console.log("Opening exit intent popup");
         setIsOpen(true);
         localStorage.setItem('exitIntentShown', 'true');
       }
@@ -64,60 +46,45 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, []);
+  });
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogContent className="sm:max-w-[500px] relative">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute right-4 top-4 rounded-full hover:bg-accent/20"
-          onClick={() => setIsOpen(false)}
-        >
-          <X className="h-4 w-4" />
-        </Button>
-        
+      <AlertDialogContent className="sm:max-w-[500px]">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-2xl text-center mb-4">
             Wait! Don't Miss Out on This Exclusive Offer
           </AlertDialogTitle>
-          <AlertDialogDescription asChild>
-            <div className="space-y-6 text-center">
-              <div className="bg-accent/10 p-6 rounded-lg">
-                <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
-                  <Timer className="w-6 h-6" />
-                  <span>Time Remaining:</span>
-                </div>
-                <div className="text-3xl font-mono font-bold text-accent">
-                  {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
-                </div>
+          <AlertDialogDescription className="text-center space-y-6">
+            <div className="bg-accent/10 p-6 rounded-lg">
+              <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
+                <Timer className="w-6 h-6" />
+                <span>Time Remaining:</span>
               </div>
-              
-              <div className="text-lg font-semibold">
-                Get $500 off with code: <span className="text-red-500">VIPX500</span>
-              </div>
-              
-              <div className="relative">
-                <ArrowDown className="absolute -top-8 right-4 w-6 h-6 text-accent animate-bounce" />
-                <div className="text-sm mb-2">
-                  Enter your email to extend this offer for an additional 48 hours!
-                </div>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    ref={inputRef}
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full text-lg p-6 border-2 border-accent focus:ring-4 focus:ring-accent/20 transition-all duration-300"
-                  />
-                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-lg py-6">
-                    Extend My Offer
-                  </Button>
-                </form>
+              <div className="text-3xl font-mono font-bold text-accent">
+                {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
               </div>
             </div>
+            
+            <div className="text-lg font-semibold">
+              Get $500 off with code: <span className="text-red-500">VIPX500</span>
+            </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <p className="text-sm">
+                Enter your email to extend this offer for an additional 48 hours!
+              </p>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full"
+              />
+              <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+                Extend My Offer
+              </Button>
+            </form>
           </AlertDialogDescription>
         </AlertDialogHeader>
       </AlertDialogContent>
