@@ -14,7 +14,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      {/* Add padding-top to account for fixed navbar */}
       <div className="pt-16">
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
@@ -31,11 +30,11 @@ const Index = () => {
                 12 Weeks to Become an AI Power User
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold">
+                <Button 
+                  size="lg" 
+                  className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold"
+                >
                   Register Now
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white/20 text-white">
-                  Learn More
                 </Button>
               </div>
               <p className="mt-4 text-sm text-white/80">
