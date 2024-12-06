@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
-  console.log("HeroSection rendering"); // Debug log
-  
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-accent/80 to-secondary" />
@@ -21,11 +18,10 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="hero"
-              size="xl"
+              size="lg" 
+              className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-semibold"
             >
               Register Now
-              <ArrowRight className="ml-2 h-8 w-8" />
             </Button>
           </div>
           <p className="mt-4 text-sm text-white/80">
