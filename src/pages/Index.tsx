@@ -18,9 +18,9 @@ const Index = () => {
       <div className="pt-16">
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
-          {/* Background image with lower opacity */}
+          {/* Background image with full opacity */}
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-5"
+            className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: "url('https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/66436f06a1016be8fae136f3_Hero-Module.svg')"
             }}
