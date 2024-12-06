@@ -60,17 +60,17 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
             Wait! Don't Miss Out on This Exclusive Offer
           </AlertDialogTitle>
           <AlertDialogDescription className="space-y-6">
-            <div className="bg-accent/10 p-6 rounded-lg">
+            <div className="bg-accent/10 p-6 rounded-lg text-center">
               <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
                 <Timer className="w-6 h-6" />
                 <span>Time Remaining:</span>
               </div>
-              <div className="text-3xl font-mono font-bold text-accent">
+              <div className="text-3xl font-mono font-bold text-accent text-center">
                 {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
               </div>
             </div>
             
-            <div className="text-lg font-semibold">
+            <div className="text-lg font-semibold text-center">
               Get $500 off with code: <span className="text-red-500">VIPX500</span>
             </div>
             
@@ -94,6 +94,15 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
                   Extend My Offer
                 </Button>
               </form>
+            </div>
+            
+            <div className="text-center mt-4">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-sm text-muted-foreground hover:text-accent transition-colors"
+              >
+                close
+              </button>
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
