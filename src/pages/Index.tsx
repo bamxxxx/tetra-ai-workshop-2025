@@ -11,6 +11,7 @@ import { CalendarIcon, CheckCircle, Trophy, Users } from "lucide-react";
 import CourseCurriculum from "@/components/CourseCurriculum";
 import WhatYouWillGain from "@/components/WhatYouWillGain";
 import AboutInstructor from "@/components/AboutInstructor";
+import FrequentlyAskedQuestions from "@/components/FrequentlyAskedQuestions";
 
 const Index = () => {
   return (
@@ -249,6 +250,9 @@ const Index = () => {
       {/* Course Curriculum Section */}
       <CourseCurriculum />
       
+      {/* FAQ Section */}
+      <FrequentlyAskedQuestions />
+      
       {/* About the Instructor */}
       <section className="py-16 bg-secondary">
         <div className="container max-w-3xl">
@@ -285,43 +289,6 @@ const Index = () => {
               </p>
             </Card>
           </div>
-        </div>
-      </section>
-      
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container max-w-3xl">
-          <h2 className="heading-lg text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          <Accordion type="single" collapsible>
-            {[
-              {
-                question: "Who is this course for?",
-                answer:
-                  "This course is ideal for professionals in research, UX/CX, product management, or design who want to enhance their AI skills.",
-              },
-              {
-                question: "What if I can't attend the live training sessions?",
-                answer: "All sessions are recorded and available on-demand.",
-              },
-              {
-                question: "Is certification mandatory?",
-                answer:
-                  "No, it's optional and requires completing coursework and assignments.",
-              },
-              {
-                question: "Do I need technical expertise?",
-                answer:
-                  "No, this workshop is for both technical and non-technical professionals.",
-              },
-            ].map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
         </div>
       </section>
       
