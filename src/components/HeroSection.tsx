@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
+  console.log("HeroSection rendering"); // Debug log
+  
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-accent/80 to-secondary" />
