@@ -21,10 +21,10 @@ const CourseStructureAndOutcomes = () => {
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12">
           <Card className="p-8">
-            <h2 className="heading-md mb-6">Course Structure</h2>
+            <h2 className="heading-md mb-6 text-center">Course Structure</h2>
             <ul className="space-y-4">
               {courseStructure.map((item, index) => (
-                <li key={index} className="flex items-center gap-3">
+                <li key={index} className="flex items-center justify-center gap-3">
                   <CheckCircle className="text-accent shrink-0" />
                   <span className="flex items-center gap-2">
                     <span className="text-xl">{item.icon}</span>
@@ -36,10 +36,10 @@ const CourseStructureAndOutcomes = () => {
           </Card>
 
           <Card className="p-8">
-            <h2 className="heading-md mb-6">Learning Outcomes</h2>
+            <h2 className="heading-md mb-6 text-center">Learning Outcomes</h2>
             <ul className="space-y-4">
               {learningOutcomes.map((item, index) => (
-                <li key={index} className="flex items-center gap-3">
+                <li key={index} className="flex items-center justify-center gap-3">
                   <CheckCircle className="text-accent shrink-0" />
                   <span className="flex items-center gap-2">
                     <span className="text-xl">{item.icon}</span>
