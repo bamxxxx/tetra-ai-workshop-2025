@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Timer } from "lucide-react";
+import { Timer, ArrowDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ExitIntentPopupProps {
@@ -13,6 +13,7 @@ interface ExitIntentPopupProps {
 const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   const formatTime = (value: number) => value.toString().padStart(2, '0');
@@ -40,6 +41,10 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
       if (e.clientY <= 0) {
         console.log("Opening exit intent popup");
         setIsOpen(true);
+        // Focus the input after a short delay to ensure the modal is rendered
+        setTimeout(() => {
+          inputRef.current?.focus();
+        }, 100);
       }
     };
 
@@ -70,16 +75,20 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
             </div>
             
             <div className="space-y-4">
-              <p className="text-sm">
-                Enter your email to extend this offer for an additional 48 hours!
-              </p>
+              <div className="text-center">
+                <p className="text-sm mb-2">
+                  Enter your email to extend this offer for an additional 48 hours!
+                </p>
+                <ArrowDown className="w-8 h-8 mx-auto text-accent animate-bounce" />
+              </div>
               <form onSubmit={handleSubmit}>
                 <Input
+                  ref={inputRef}
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full mb-4"
+                  className="w-full mb-4 text-lg border-2 border-accent focus:border-accent/90 h-12 px-4"
                 />
                 <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
                   Extend My Offer
