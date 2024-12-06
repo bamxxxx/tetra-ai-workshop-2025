@@ -17,12 +17,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <NotificationBar />
-      <div className="pt-8"> {/* Add top padding to account for notification bar */}
+      <div className="pt-16"> {/* Increased padding to account for fixed notification bar */}
         <Navbar />
-        <div className="pt-24"> {/* Increased padding-top to account for both navbar and notification bar */}
+        <div className="pt-16"> {/* Padding for navbar */}
           <HeroSection />
           
-          {/* Course Highlights */}
           <section className="py-20 bg-white">
             <div className="container">
               <h2 className="heading-lg text-center mb-12">Course Highlights</h2>

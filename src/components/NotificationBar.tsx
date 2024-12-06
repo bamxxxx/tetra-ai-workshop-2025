@@ -31,7 +31,7 @@ const NotificationBar = () => {
   const formatTime = (value: number) => value.toString().padStart(2, '0');
 
   return (
-    <div className="bg-accent py-2 text-white text-sm font-medium">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-accent py-2 text-white text-sm font-medium">
       <div className="container mx-auto px-4 flex items-center justify-center gap-2">
         <Timer className="w-4 h-4" />
         <span className="font-bold">LIMITED TIME OFFER</span>
