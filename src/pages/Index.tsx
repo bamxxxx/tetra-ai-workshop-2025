@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, CheckCircle, Trophy, Users } from "lucide-react";
+import CourseCurriculum from "@/components/CourseCurriculum";
 
 const Index = () => {
   return (
@@ -40,7 +41,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Course Highlights */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -77,7 +78,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Key Dates Section */}
       <section className="py-16 bg-secondary">
         <div className="container">
@@ -109,7 +110,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Risk-Free Offer */}
       <section className="py-16 bg-white">
         <div className="container max-w-3xl text-center">
@@ -126,7 +127,7 @@ const Index = () => {
           </Card>
         </div>
       </section>
-
+      
       {/* Course Overview */}
       <section className="py-16 bg-secondary">
         <div className="container max-w-3xl">
@@ -144,7 +145,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Course Structure & Learning Outcomes */}
       <section className="py-16 bg-white">
         <div className="container">
@@ -184,7 +185,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Who Should Enroll */}
       <section className="py-16 bg-secondary">
         <div className="container">
@@ -204,7 +205,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* What's Included */}
       <section className="py-16 bg-white">
         <div className="container max-w-4xl">
@@ -237,6 +238,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Course Curriculum Section */}
+      <CourseCurriculum />
+      
       {/* About the Instructor */}
       <section className="py-16 bg-secondary">
         <div className="container max-w-3xl">
@@ -254,7 +258,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Pricing Section */}
       <section className="py-20 bg-secondary">
         <div className="container">
@@ -275,7 +279,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="container max-w-3xl">
@@ -312,7 +316,7 @@ const Index = () => {
           </Accordion>
         </div>
       </section>
-
+      
       {/* Footer */}
       <footer className="py-8 bg-primary text-primary-foreground">
         <div className="container text-center">
