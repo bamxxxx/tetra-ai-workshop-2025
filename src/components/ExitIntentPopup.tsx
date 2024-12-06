@@ -13,6 +13,7 @@ interface ExitIntentPopupProps {
 const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
   const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -29,7 +30,7 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
       return;
     }
     onEmailSubmit(email);
-    setIsOpen(false);
+    setIsSubmitted(true);
   };
 
   useEffect(() => {
@@ -52,46 +53,56 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
       <AlertDialogContent className="sm:max-w-[500px]">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-2xl text-center mb-4">
-            Wait! Don't Miss Out on This Exclusive Offer
+            {isSubmitted ? "Thank You!" : "Wait! Don't Miss Out on This Exclusive Offer"}
           </AlertDialogTitle>
           <AlertDialogDescription>
             <div className="space-y-6">
-              <div className="bg-accent/10 p-6 rounded-lg text-center">
-                <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
-                  <Timer className="w-6 h-6" />
-                  <span>Time Remaining:</span>
-                </div>
-                <div className="text-3xl font-mono font-bold text-accent text-center">
-                  {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
-                </div>
-              </div>
-              
-              <div className="text-lg font-semibold text-center">
-                Get $500 off with code: <span className="text-red-500">VIPX500</span>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="text-center">
-                  <div className="text-sm mb-2">
-                    Enter your email to extend this offer for an additional 48 hours!
+              {!isSubmitted ? (
+                <>
+                  <div className="bg-accent/10 p-6 rounded-lg text-center">
+                    <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
+                      <Timer className="w-6 h-6" />
+                      <span>Time Remaining:</span>
+                    </div>
+                    <div className="text-3xl font-mono font-bold text-accent text-center">
+                      {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+                    </div>
                   </div>
-                  <ArrowDown className="w-8 h-8 mx-auto text-accent animate-bounce" />
+                  
+                  <div className="text-lg font-semibold text-center">
+                    Get $500 off with code: <span className="text-red-500">VIPX500</span>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-sm mb-2">
+                        Enter your email to extend this offer for an additional 48 hours!
+                      </div>
+                      <ArrowDown className="w-8 h-8 mx-auto text-accent animate-bounce" />
+                    </div>
+                    
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <Input
+                        ref={inputRef}
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full mb-4 text-lg border-2 border-accent focus:border-accent/90 h-12 px-4"
+                      />
+                      <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+                        Extend My Offer
+                      </Button>
+                    </form>
+                  </div>
+                </>
+              ) : (
+                <div className="text-center space-y-4">
+                  <div className="text-lg">
+                    Check your email for your discount code!
+                  </div>
                 </div>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    ref={inputRef}
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full mb-4 text-lg border-2 border-accent focus:border-accent/90 h-12 px-4"
-                  />
-                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
-                    Extend My Offer
-                  </Button>
-                </form>
-              </div>
+              )}
               
               <div className="text-center">
                 <button
