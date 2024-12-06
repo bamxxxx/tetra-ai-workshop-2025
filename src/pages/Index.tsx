@@ -27,7 +27,7 @@ const Index = () => {
               <h1 className="heading-xl mb-6 text-white">
                 AI for Research & Insights Workshop
               </h1>
-              <p className="body-lg mb-8 text-white/90">
+              <p className="text-2xl md:text-4xl mb-8 text-white/90 font-semibold">
                 12 Weeks to Become an AI Power User
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
