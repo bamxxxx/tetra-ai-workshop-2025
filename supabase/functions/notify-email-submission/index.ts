@@ -70,16 +70,17 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
-    const emailData = await emailRes.text();
-    console.log('Resend API response:', emailRes.status, emailData);
-
     if (!emailRes.ok) {
+      const emailData = await emailRes.text();
       console.error('Resend API error:', emailData);
       return new Response(JSON.stringify({ error: `Failed to send notification email: ${emailData}` }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+
+    const emailData = await emailRes.json();
+    console.log('Email sent successfully:', emailData);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

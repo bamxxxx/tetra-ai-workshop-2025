@@ -30,10 +30,6 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
     }
     onEmailSubmit(email);
     setIsOpen(false);
-    toast({
-      title: "Offer Extended!",
-      description: "We've extended your discount for an additional 48 hours.",
-    });
   };
 
   useEffect(() => {
@@ -41,7 +37,6 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
       if (e.clientY <= 0) {
         console.log("Opening exit intent popup");
         setIsOpen(true);
-        // Focus the input after a short delay to ensure the modal is rendered
         setTimeout(() => {
           inputRef.current?.focus();
         }, 100);
@@ -59,50 +54,53 @@ const ExitIntentPopup = ({ timeLeft, onEmailSubmit }: ExitIntentPopupProps) => {
           <AlertDialogTitle className="text-2xl text-center mb-4">
             Wait! Don't Miss Out on This Exclusive Offer
           </AlertDialogTitle>
-          <AlertDialogDescription className="space-y-6">
-            <div className="bg-accent/10 p-6 rounded-lg text-center">
-              <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
-                <Timer className="w-6 h-6" />
-                <span>Time Remaining:</span>
+          <AlertDialogDescription>
+            <div className="space-y-6">
+              <div className="bg-accent/10 p-6 rounded-lg text-center">
+                <div className="flex items-center justify-center gap-2 text-xl font-bold mb-2">
+                  <Timer className="w-6 h-6" />
+                  <span>Time Remaining:</span>
+                </div>
+                <div className="text-3xl font-mono font-bold text-accent text-center">
+                  {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+                </div>
               </div>
-              <div className="text-3xl font-mono font-bold text-accent text-center">
-                {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+              
+              <div className="text-lg font-semibold text-center">
+                Get $500 off with code: <span className="text-red-500">VIPX500</span>
               </div>
-            </div>
-            
-            <div className="text-lg font-semibold text-center">
-              Get $500 off with code: <span className="text-red-500">VIPX500</span>
-            </div>
-            
-            <div className="space-y-4">
+              
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-sm mb-2">
+                    Enter your email to extend this offer for an additional 48 hours!
+                  </div>
+                  <ArrowDown className="w-8 h-8 mx-auto text-accent animate-bounce" />
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input
+                    ref={inputRef}
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full mb-4 text-lg border-2 border-accent focus:border-accent/90 h-12 px-4"
+                  />
+                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+                    Extend My Offer
+                  </Button>
+                </form>
+              </div>
+              
               <div className="text-center">
-                <p className="text-sm mb-2">
-                  Enter your email to extend this offer for an additional 48 hours!
-                </p>
-                <ArrowDown className="w-8 h-8 mx-auto text-accent animate-bounce" />
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                >
+                  close
+                </button>
               </div>
-              <form onSubmit={handleSubmit}>
-                <Input
-                  ref={inputRef}
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full mb-4 text-lg border-2 border-accent focus:border-accent/90 h-12 px-4"
-                />
-                <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
-                  Extend My Offer
-                </Button>
-              </form>
-            </div>
-            
-            <div className="text-center mt-4">
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-sm text-muted-foreground hover:text-accent transition-colors"
-              >
-                close
-              </button>
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
