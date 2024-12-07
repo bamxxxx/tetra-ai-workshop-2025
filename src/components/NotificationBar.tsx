@@ -3,6 +3,7 @@ import { Timer, ArrowRight } from 'lucide-react';
 import ExitIntentPopup from './ExitIntentPopup';
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const NotificationBar = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -11,6 +12,7 @@ const NotificationBar = () => {
     seconds: 0
   });
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Check if this is the first visit
@@ -91,25 +93,55 @@ const NotificationBar = () => {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-[60] bg-accent py-2 text-white text-sm font-medium">
-        <div className="container mx-auto px-4 flex items-center justify-center gap-2">
-          <Timer className="w-4 h-4" />
-          <span className="font-bold">LIMITED TIME OFFER</span>
-          <span className="mx-2">
-            {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)} remaining
-          </span>
-          <span>|</span>
-          <span className="font-extrabold text-red-400">Get $500 off</span>
-          <span>with code</span>
-          <span className="font-bold">VIPX500</span>
-          <a
-            href="https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=VIPX500"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 font-semibold hover:bg-white/20 px-2 py-1 rounded-full transition-colors"
-          >
-            Claim Now
-            <ArrowRight className="w-4 h-4" />
-          </a>
+        <div className="container mx-auto px-4">
+          {isMobile ? (
+            // Mobile layout
+            <div className="flex flex-col items-center space-y-1">
+              <div className="flex items-center gap-1">
+                <Timer className="w-4 h-4" />
+                <span className="font-bold">LIMITED TIME OFFER</span>
+              </div>
+              <div className="text-center">
+                <span>{formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)} remaining</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-red-400">Get $500 off</span>
+                <span>with</span>
+                <span className="font-bold">VIPX500</span>
+              </div>
+              <a
+                href="https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=VIPX500"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 font-semibold hover:bg-white/20 px-4 py-1 rounded-full transition-colors"
+              >
+                Claim Now
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          ) : (
+            // Desktop layout
+            <div className="flex items-center justify-center gap-2">
+              <Timer className="w-4 h-4" />
+              <span className="font-bold">LIMITED TIME OFFER</span>
+              <span className="mx-2">
+                {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)} remaining
+              </span>
+              <span>|</span>
+              <span className="font-extrabold text-red-400">Get $500 off</span>
+              <span>with code</span>
+              <span className="font-bold">VIPX500</span>
+              <a
+                href="https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=VIPX500"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 font-semibold hover:bg-white/20 px-2 py-1 rounded-full transition-colors"
+              >
+                Claim Now
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          )}
         </div>
       </div>
       
