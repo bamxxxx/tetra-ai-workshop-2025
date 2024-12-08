@@ -18,6 +18,8 @@ const App = () => (
           <Route path="/ai-workshop" element={<Index />} />
           <Route path="/about" element={<div className="p-8 pt-24">About Tetra page coming soon...</div>} />
           <Route path="/contact" element={<div className="p-8 pt-24">Contact Us page coming soon...</div>} />
+          {/* Catch-all route - redirect to /ai-workshop */}
+          <Route path="*" element={<Navigate to="/ai-workshop" replace />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
