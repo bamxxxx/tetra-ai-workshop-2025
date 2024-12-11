@@ -35,6 +35,24 @@ const Contact = () => {
               </div>
             </div>
           </section>
+
+          {/* Footer */}
+          <footer className="py-8 bg-primary text-primary-foreground">
+            <div className="container text-center">
+              <p className="text-sm">
+                Copyright © 2024 Tetra Insights, Inc. All rights reserved.
+              </p>
+              <p className="text-sm mt-2">
+                Questions? Email us at{" "}
+                <a
+                  href="mailto:support@tetrainsights.com"
+                  className="text-accent hover:underline"
+                >
+                  support@tetrainsights.com
+                </a>
+              </p>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
