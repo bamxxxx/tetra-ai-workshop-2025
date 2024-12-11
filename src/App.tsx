@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
+import AboutPage from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Navigate to="/ai-workshop" replace />} />
           <Route path="/ai-workshop" element={<Index />} />
-          <Route path="/about" element={<div className="p-8 pt-24">About Tetra page coming soon...</div>} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<div className="p-8 pt-24">Contact Us page coming soon...</div>} />
           {/* Catch-all route - redirect to /ai-workshop */}
           <Route path="*" element={<Navigate to="/ai-workshop" replace />} />
