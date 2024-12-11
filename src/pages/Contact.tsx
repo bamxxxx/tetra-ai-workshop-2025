@@ -60,40 +60,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-secondary">
-      <NotificationBar />
-      <div className="pt-10">
-        <Navbar />
-        <div className="container max-w-6xl px-4 pt-24 pb-16">
-          <div className="text-center mb-12">
-            <h1 className="heading-xl mb-4">Contact Us</h1>
-            <p className="body-lg max-w-2xl mx-auto">
-              Have questions about the AI Workshop or Tetra? We're here to help!
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="glass-card p-8 rounded-lg space-y-6">
-                <h2 className="heading-md">Get in Touch</h2>
-                <p className="text-muted-foreground">
-                  We'd love to hear from you. Please reach out through any of these channels:
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-accent" />
-                    <a href="tel:+13473542969" className="hover:text-accent transition-colors">
-                      (347) 354-2969
-                    </a>
-                  </div>
-                  
-                  <div className="flex items-centerI'll update the Contact page to include the NotificationBar and maintain consistent styling with the About page.
+    <div className="min-h-screen bg-secondaryI see the issue. The error occurs because there's some text and Lovable syntax mixed into the actual Contact.tsx file content. Let me fix this by providing a clean version of the Contact page.
 
 <lov-code>
-Let's update the Contact page to match the About page layout:
-
 <lov-write file_path="src/pages/Contact.tsx">
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
