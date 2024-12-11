@@ -31,9 +31,9 @@ const AboutPage = () => {
                   </div>
                   <div className="relative h-64 rounded-lg overflow-hidden glass-card">
                     <img 
-                      src="https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/tetra_illustration.svg" 
-                      alt="Tetra Insights Illustration"
-                      className="object-contain w-full h-full p-4 hover:scale-105 transition-transform duration-300"
+                      src="/lovable-uploads/34b3247e-4f81-40d2-9d7c-aee0efd3df54.png" 
+                      alt="Team collaboration and insights illustration"
+                      className="object-cover w-full h-full p-4 hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
