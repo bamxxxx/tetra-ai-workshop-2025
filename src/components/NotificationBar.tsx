@@ -7,7 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const NotificationBar = () => {
   const [timeLeft, setTimeLeft] = useState({
-    hours: 12,
+    hours: 0,
     minutes: 0,
     seconds: 0
   });
@@ -19,9 +19,8 @@ const NotificationBar = () => {
     const endTime = localStorage.getItem('timerEndTime');
     
     if (!endTime) {
-      // First visit - set end time to 12 hours from now
-      const end = new Date();
-      end.setHours(end.getHours() + 12);
+      // First visit - set end time to December 15th, 2024, at 11:59 PM
+      const end = new Date('2024-12-15T23:59:59');
       localStorage.setItem('timerEndTime', end.toISOString());
     }
 
@@ -95,7 +94,6 @@ const NotificationBar = () => {
       <div className="fixed top-0 left-0 right-0 z-[60] bg-accent py-2 text-white text-sm font-medium">
         <div className="container mx-auto px-4">
           {isMobile ? (
-            // Mobile layout
             <div className="flex flex-col items-center space-y-1">
               <div className="flex items-center gap-1">
                 <Timer className="w-4 h-4" />
@@ -120,7 +118,6 @@ const NotificationBar = () => {
               </a>
             </div>
           ) : (
-            // Desktop layout
             <div className="flex items-center justify-center gap-2">
               <Timer className="w-4 h-4" />
               <span className="font-bold">LIMITED TIME OFFER</span>
