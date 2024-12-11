@@ -5,22 +5,36 @@ import ContactForm from "@/components/contact/ContactForm";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-secondary">
+    <div className="min-h-screen">
       <NotificationBar />
       <div className="pt-10">
         <Navbar />
-        <div className="container max-w-6xl px-4 pt-24 pb-16">
-          <div className="text-center mb-12">
-            <h1 className="heading-xl mb-4">Contact Us</h1>
-            <p className="body-lg max-w-2xl mx-auto">
-              Have questions about the AI Workshop or Tetra? We're here to help!
-            </p>
-          </div>
+        <div className="pt-16">
+          {/* Hero Section - Matching About page style */}
+          <section className="relative py-20 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-accent/80 to-secondary" />
+            <div className="container relative">
+              <div className="max-w-3xl mx-auto text-center animate-fade-up">
+                <h1 className="heading-xl mb-6 text-white">Contact Us</h1>
+              </div>
+            </div>
+          </section>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <ContactInfo />
-            <ContactForm />
-          </div>
+          {/* Content Section */}
+          <section className="py-16 bg-white">
+            <div className="container max-w-6xl">
+              <div className="text-center mb-12">
+                <p className="body-lg max-w-2xl mx-auto">
+                  Have questions about the AI Workshop or Tetra? We're here to help!
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+                <ContactInfo />
+                <ContactForm />
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
