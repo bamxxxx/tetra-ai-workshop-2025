@@ -22,7 +22,7 @@ const AboutPage = () => {
           <section className="py-16 bg-white">
             <div className="container max-w-3xl">
               <div className="space-y-12 text-left">
-                {/* First Section with Image */}
+                {/* First Section with Illustration */}
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div className="space-y-6">
                     <p className="body-lg">
@@ -31,27 +31,18 @@ const AboutPage = () => {
                   </div>
                   <div className="relative h-64 rounded-lg overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                      alt="Team analyzing data on screens"
-                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                      src="https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/tetra_illustration.svg" 
+                      alt="Tetra Insights Illustration"
+                      className="object-contain w-full h-full hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
 
-                {/* Second Section with Image */}
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="relative h-64 rounded-lg overflow-hidden md:order-2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
-                      alt="Team collaboration"
-                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="space-y-6 md:order-1">
-                    <p className="body-lg">
-                      We believe that exceptional customer experiences begin with truly listening—going beyond surface-level metrics to grasp the emotions, motivations, and contexts that shape people's choices. Our platform simplifies the entire research process, from study design and data collection to analysis and reporting. By weaving together qualitative and quantitative insights, Tetra enables businesses to quickly refine ideas, validate assumptions, and ensure that every product, service, or campaign resonates genuinely with its intended audience.
-                    </p>
-                  </div>
+                {/* Second Section */}
+                <div className="space-y-6">
+                  <p className="body-lg">
+                    We believe that exceptional customer experiences begin with truly listening—going beyond surface-level metrics to grasp the emotions, motivations, and contexts that shape people's choices. Our platform simplifies the entire research process, from study design and data collection to analysis and reporting. By weaving together qualitative and quantitative insights, Tetra enables businesses to quickly refine ideas, validate assumptions, and ensure that every product, service, or campaign resonates genuinely with its intended audience.
+                  </p>
                 </div>
 
                 {/* Third Section */}
@@ -61,20 +52,11 @@ const AboutPage = () => {
                   </p>
                 </div>
 
-                {/* Fourth Section with Image */}
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="relative h-64 rounded-lg overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
-                      alt="Person working on laptop"
-                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="space-y-6">
-                    <p className="body-lg">
-                      Our workshops and training programs, including the one featured here, are an extension of that mission. They're designed to equip you with the tools, strategies, and confidence to leverage insights across every stage of product and experience development. When you partner with Tetra, you gain a trusted ally committed to not only improving how you gather and use customer information, but also to inspiring a human-centered culture of innovation within your organization.
-                    </p>
-                  </div>
+                {/* Fourth Section */}
+                <div className="space-y-6">
+                  <p className="body-lg">
+                    Our workshops and training programs, including the one featured here, are an extension of that mission. They're designed to equip you with the tools, strategies, and confidence to leverage insights across every stage of product and experience development. When you partner with Tetra, you gain a trusted ally committed to not only improving how you gather and use customer information, but also to inspiring a human-centered culture of innovation within your organization.
+                  </p>
                 </div>
 
                 {/* Final Statement */}
