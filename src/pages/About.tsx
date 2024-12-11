@@ -21,24 +21,64 @@ const AboutPage = () => {
           {/* Content Sections */}
           <section className="py-16 bg-white">
             <div className="container max-w-3xl">
-              <div className="space-y-8 text-left">
-                <p className="body-lg">
-                  Tetra is a research and insights platform dedicated to helping organizations deeply understand their customers, innovate with confidence, and drive meaningful growth. Through a thoughtful blend of technology, expertise, and human empathy, we empower teams to uncover nuanced user perspectives, transform raw data into actionable intelligence, and make well-informed, strategic decisions.
-                </p>
+              <div className="space-y-12 text-left">
+                {/* First Section with Image */}
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <p className="body-lg">
+                      Tetra is a research and insights platform dedicated to helping organizations deeply understand their customers, innovate with confidence, and drive meaningful growth. Through a thoughtful blend of technology, expertise, and human empathy, we empower teams to uncover nuanced user perspectives, transform raw data into actionable intelligence, and make well-informed, strategic decisions.
+                    </p>
+                  </div>
+                  <div className="relative h-64 rounded-lg overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
+                      alt="Team analyzing data on screens"
+                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
 
-                <p className="body-lg">
-                  We believe that exceptional customer experiences begin with truly listening—going beyond surface-level metrics to grasp the emotions, motivations, and contexts that shape people's choices. Our platform simplifies the entire research process, from study design and data collection to analysis and reporting. By weaving together qualitative and quantitative insights, Tetra enables businesses to quickly refine ideas, validate assumptions, and ensure that every product, service, or campaign resonates genuinely with its intended audience.
-                </p>
+                {/* Second Section with Image */}
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="relative h-64 rounded-lg overflow-hidden md:order-2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+                      alt="Team collaboration"
+                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="space-y-6 md:order-1">
+                    <p className="body-lg">
+                      We believe that exceptional customer experiences begin with truly listening—going beyond surface-level metrics to grasp the emotions, motivations, and contexts that shape people's choices. Our platform simplifies the entire research process, from study design and data collection to analysis and reporting. By weaving together qualitative and quantitative insights, Tetra enables businesses to quickly refine ideas, validate assumptions, and ensure that every product, service, or campaign resonates genuinely with its intended audience.
+                    </p>
+                  </div>
+                </div>
 
-                <p className="body-lg">
-                  At the heart of Tetra is a passionate team of researchers, technologists, and thought leaders who share a singular mission: to bridge the gap between organizations and the real people they serve. With years of experience guiding companies of all sizes—ranging from early-stage startups to established global brands—we've cultivated a supportive ecosystem that fosters learning, innovation, and sustainable growth.
-                </p>
+                {/* Third Section */}
+                <div className="space-y-6">
+                  <p className="body-lg">
+                    At the heart of Tetra is a passionate team of researchers, technologists, and thought leaders who share a singular mission: to bridge the gap between organizations and the real people they serve. With years of experience guiding companies of all sizes—ranging from early-stage startups to established global brands—we've cultivated a supportive ecosystem that fosters learning, innovation, and sustainable growth.
+                  </p>
+                </div>
 
-                <p className="body-lg">
-                  Our workshops and training programs, including the one featured here, are an extension of that mission. They're designed to equip you with the tools, strategies, and confidence to leverage insights across every stage of product and experience development. When you partner with Tetra, you gain a trusted ally committed to not only improving how you gather and use customer information, but also to inspiring a human-centered culture of innovation within your organization.
-                </p>
+                {/* Fourth Section with Image */}
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="relative h-64 rounded-lg overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                      alt="Person working on laptop"
+                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="space-y-6">
+                    <p className="body-lg">
+                      Our workshops and training programs, including the one featured here, are an extension of that mission. They're designed to equip you with the tools, strategies, and confidence to leverage insights across every stage of product and experience development. When you partner with Tetra, you gain a trusted ally committed to not only improving how you gather and use customer information, but also to inspiring a human-centered culture of innovation within your organization.
+                    </p>
+                  </div>
+                </div>
 
-                <p className="body-lg font-semibold text-accent">
+                {/* Final Statement */}
+                <p className="body-lg font-semibold text-accent text-center">
                   Together, let's elevate your understanding and build better experiences—one insight at a time.
                 </p>
               </div>
