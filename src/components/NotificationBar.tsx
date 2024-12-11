@@ -19,8 +19,8 @@ const NotificationBar = () => {
     const endTime = localStorage.getItem('timerEndTime');
     
     if (!endTime) {
-      // First visit - set end time to December 15th, 2024, at 11:59 PM
-      const end = new Date('2024-12-15T23:59:59');
+      // First visit - set end time to December 13th, 2024, at 11:59 PM
+      const end = new Date('2024-12-13T23:59:59');
       localStorage.setItem('timerEndTime', end.toISOString());
     }
 
