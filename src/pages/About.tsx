@@ -29,11 +29,11 @@ const AboutPage = () => {
                       Tetra is a research and insights platform dedicated to helping organizations deeply understand their customers, innovate with confidence, and drive meaningful growth. Through a thoughtful blend of technology, expertise, and human empathy, we empower teams to uncover nuanced user perspectives, transform raw data into actionable intelligence, and make well-informed, strategic decisions.
                     </p>
                   </div>
-                  <div className="relative h-64 rounded-lg overflow-hidden">
+                  <div className="relative h-64 rounded-lg overflow-hidden glass-card">
                     <img 
                       src="https://llpltjjcprminnkujpaz.supabase.co/storage/v1/object/public/aiworkshopfiles/tetra_illustration.svg" 
                       alt="Tetra Insights Illustration"
-                      className="object-contain w-full h-full hover:scale-105 transition-transform duration-300"
+                      className="object-contain w-full h-full p-4 hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
