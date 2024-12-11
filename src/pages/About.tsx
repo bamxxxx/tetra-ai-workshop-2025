@@ -63,6 +63,18 @@ const AboutPage = () => {
                 <p className="body-lg font-semibold text-accent text-center">
                   Together, let's elevate your understanding and build better experiences—one insight at a time.
                 </p>
+
+                {/* Learn More Link */}
+                <div className="text-center pt-8">
+                  <a 
+                    href="https://tetrainsights.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-accent/80 font-medium transition-colors"
+                  >
+                    Learn more about Tetra →
+                  </a>
+                </div>
               </div>
             </div>
           </section>
