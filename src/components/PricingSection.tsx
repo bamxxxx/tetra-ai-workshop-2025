@@ -15,12 +15,12 @@ const PricingSection = () => {
             <Button 
               size="lg" 
               className="w-full bg-accent hover:bg-accent/90"
-              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=EARLY300", "_blank")}
+              onClick={() => window.open("https://buy.stripe.com/6oE8yCbfMbPB7Li9AD?prefilled_promo_code=VIPX500", "_blank")}
             >
               Secure Your Spot
             </Button>
             <p className="mt-4 text-sm text-muted-foreground">
-              Use code EARLY300 before December 21st to save $200
+              Use code VIPX500 to save $500
             </p>
           </Card>
         </div>
