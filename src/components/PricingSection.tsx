@@ -9,7 +9,7 @@ const PricingSection = () => {
           <h2 className="heading-lg mb-12">Simple, Transparent Pricing</h2>
           <Card className="glass-card p-8">
             <div className="flex items-baseline justify-center gap-2 mb-4">
-              <span className="text-3xl font-bold">$1,299</span>
+              <span className="text-3xl font-bold">$999</span>
               <span className="text-muted-foreground line-through">$1,499</span>
             </div>
             <Button 
